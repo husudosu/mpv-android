@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditTextPreference
+        android:defaultValue="127.0.0.1"
+        android:key="media_server_host"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Host"
+        app:summary="Set the host" />
+    <EditTextPreference
+        android:defaultValue="media_server_port"
+        android:key="text_preference_port"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Port"
+        app:summary="Set the port" />
+</PreferenceScreen>

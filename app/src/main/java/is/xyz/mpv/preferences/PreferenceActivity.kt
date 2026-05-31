@@ -159,4 +159,11 @@ class PreferenceActivity : AppCompatActivity(),
             setPreferencesFromResource(R.xml.pref_advanced, rootKey)
         }
     }
+
+    class MediaServerPreference: PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.pref_mediaserver, rootKey)
+        }
+    }
+
 }

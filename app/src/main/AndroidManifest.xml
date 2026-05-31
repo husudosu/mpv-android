@@ -25,7 +25,9 @@
         android:banner="@mipmap/ic_banner"
         android:label="@string/mpv_activity"
         android:appCategory="video"
-        android:localeConfig="@xml/locales_config">
+        android:localeConfig="@xml/locales_config"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
 
         <!-- Multi-window support on some devices -->
         <meta-data android:name="com.samsung.android.sdk.multiwindow.enable"
@@ -222,6 +224,13 @@
 
         <activity
             android:name=".FilePickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@style/FilePickerThemeSpecial"
+            android:exported="false" />
+
+        <activity
+            android:name=".ServerFilePickerActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="behind"
             android:theme="@style/FilePickerThemeSpecial"

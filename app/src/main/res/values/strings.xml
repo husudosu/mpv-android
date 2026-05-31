@@ -208,4 +208,5 @@
     <!-- File picker -->
     <string name="nnf_name">Name</string>
     <string name="nnf_permission_external_write_denied">Permission to access file system denied</string>
+    <string name="file_picker_server">Pick file from server</string>
 </resources>

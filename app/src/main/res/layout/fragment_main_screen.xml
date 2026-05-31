@@ -62,6 +62,7 @@
             android:text="@string/file_picker_old"
             android:textColor="@android:color/primary_text_dark" />
 
+
         <Button
             android:id="@+id/settingsBtn"
             style="@style/Widget.AppCompat.Button.Colored"
@@ -72,6 +73,24 @@
             android:text="@string/action_settings"
             android:textColor="@android:color/primary_text_dark" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/filepickerFromServerBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_folder_white_48dp"
+            android:text="@string/file_picker_server"
+            android:textColor="@android:color/primary_text_dark" />
     </LinearLayout>
 
     <androidx.appcompat.widget.SwitchCompat

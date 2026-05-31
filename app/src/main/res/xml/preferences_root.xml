@@ -33,6 +33,12 @@
         app:title="@string/pref_header_advanced" />
 
     <Preference
+        app:fragment="is.xyz.mpv.preferences.PreferenceActivity$MediaServerPreference"
+        app:icon="@drawable/round_settings_24"
+        app:summary="@string/pref_header_advanced_summary"
+        app:title="Media server" />
+
+    <Preference
         app:icon="@drawable/round_info_24"
         app:summary="@string/pref_header_about_mpv_summary"
         app:title="@string/pref_header_about_mpv">

@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -24,6 +25,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private lateinit var documentTreeOpener: ActivityResultLauncher<Uri?>
     private lateinit var filePickerLauncher: ActivityResultLauncher<Intent>
     private lateinit var playerLauncher: ActivityResultLauncher<Intent>
+
+    private lateinit var serverFilePickerLauncher: ActivityResultLauncher<Intent>
+
 
     private var firstRun = false
     private var returningFromPlayer = false
@@ -56,6 +60,15 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                 lastPath = path
             }
             it.data?.getStringExtra("path")?.let { path ->
+                playFile(path)
+            }
+        }
+        serverFilePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode != Activity.RESULT_OK) {
+                return@registerForActivityResult
+            }
+            it.data?.getStringExtra("media_url")?.let { path ->
+                Log.i("MAIN", "Got media Url: $path")
                 playFile(path)
             }
         }
@@ -102,6 +115,13 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         binding.settingsBtn.setOnClickListener {
             saveChoice("") // will reset
             startActivity(Intent(context, PreferenceActivity::class.java))
+        }
+
+        binding.filepickerFromServerBtn.setOnClickListener {
+            saveChoice("" ) // Will reset
+            val i = Intent(context, ServerFilePickerActivity::class.java)
+            //startActivity(Intent(context, ServerFilePickerActivity::class.java))
+            serverFilePickerLauncher.launch(i)
         }
 
         if (BuildConfig.DEBUG) {
